@@ -1,0 +1,9 @@
+let x = -4;
+lex y = 0;
+let z = 123;
+let a = -0;
+printf x;
+printf "abc";
+printf " try this string";
+// this is comment
+?
