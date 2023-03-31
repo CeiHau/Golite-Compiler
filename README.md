@@ -1,6 +1,43 @@
 # Full description
 In Golite_Compiler Xihao wang.pdf.
-
+## Golite Grammar
+```
+Program = Types Declarations Functions 'eof'                                                       ;
+Types = {TypeDeclaration}                                                                          ;
+TypeDeclaration = 'type' 'id' 'struct' '{' Fields '}' ';'                                          ;
+Fields = Decl ';' {Decl ';'}                                                                       ;
+Decl = 'id' Type                                                                                   ;
+Type = 'int' | 'bool' | '*' 'id'                                                                   ;
+Declarations = {Declaration}                                                                       ;
+Declaration = 'var' Ids Type ';'                                                                   ;
+Ids = 'id' {',' 'id'}                                                                              ;
+Functions = {Function}                                                                             ;
+Function = 'func' 'id' Parameters [ReturnType] '{' Declarations Statements '}'                     ;
+Parameters = '(' [ Decl {',' Decl}] ')'                                                            ;
+ReturnType = type                                                                                  ;
+Statements = {Statement}                                                                           ;
+Statement = Block | Assignment | Print | Delete | Read | Conditional | Loop | Return  | Invocation ;
+Read = 'scan' LValue ';'                                                                           ;
+Block = '{' Statements '}'                                                                         ;
+Delete = 'delete' Expression ';'                                                                   ;
+Assignment = LValue '=' Expression ';'                                                             ;
+Print = 'printf' '(' 'string' { ',' Expression} ')'  ';'                                           ;
+Conditional = 'if' '(' Expression ')' Block ['else' Block]                                         ;
+Loop = 'for' '(' Expression ')' Block                                                              ;
+Return = 'return' [Expression] ';'                                                                 ;
+Invocation = 'id' Arguments ';'                                                                    ;
+Arguments = '(' [Expression {',' Expression}] ')'                                                  ;
+LValue = 'id' {'.' id}                                                                             ;
+Expression = BoolTerm {'||' BoolTerm}                                                              ;
+BoolTerm = EqualTerm {'&&' EqualTerm}                                                              ;
+EqualTerm =  RelationTerm {('=='| '!=') RelationTerm}                                              ;
+RelationTerm = SimpleTerm {('>'| '<' | '<=' | '>=') SimpleTerm}                                    ;
+SimpleTerm = Term {('+'| '-') Term}                                                                ;
+Term = UnaryTerm {('*'| '/') UnaryTerm}                                                            ;
+UnaryTerm = '!' SelectorTerm | '-' SelectorTerm | SelectorTerm                                     ;
+SelectorTerm = Factor {'.' 'id'}                                                                   ;
+Factor = '(' Expression ')' | 'id' [Arguments] | 'number' | 'new' 'id' | 'true' | 'false' | 'nil'  ;
+```
 # Milestone 4
 Successfully and fully design and implement arm code. 
 
