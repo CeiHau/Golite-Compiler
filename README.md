@@ -8,8 +8,10 @@ The following CFG grammar partially describes the Golite syntax. In the EBNF bel
 
 | Usage      | Month | Meaning |
 | ----------- | ----------- | ----------- |
-| Definition      | '='       |   The definition of a production          |
-| Paragraph   | Text        |             |
+| Definition      | `=`      |   The definition of a production          |
+| Repetition   | `{...}`        |   Zero or more occurrences of the symbol(s) defined in the braces.          |
+| Optimal   | `[...]`        |   The symbol(s) defined in subscript brackets are not required to appear.          |
+| Grouping   | `(...)`        |   Any terminal symbol from within this group is valid.          |
 
 ```
 Program = Types Declarations Functions 'eof'                                                       ;
