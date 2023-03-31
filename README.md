@@ -6,7 +6,7 @@ The project implementation is described in `Golite_Compiler_Xihao_Wang.pdf`.
 
 ## Golite Grammar
 
-The following CFG grammar partially describes the Golite syntax. In the EBNF below, non-terminals are highlighted in blue with a `=` instead of an `->` as shown in class. You’ll notice a series of semi-colons lined up at the end of each line in the EBNF. Please ignore those semi-colons because they are needed to signal the end of a production. The language does contain semicolons to signal the end of a statement but those are terminals and are indicated as `';'`. The terminals are highlighted in green with single quotes. Don’t be frighten by the length of the grammar. We are just being very explicit about everything but the language is relatively small in comparison to the full Go language. Additional notation is provided in the below chart.
+The following CFG grammar partially describes the Golite syntax. In the EBNF below, non-terminals are highlighted in blue with a `=` instead of an `->` as shown in class. The language does contain semicolons to signal the end of a statement but those are terminals and are indicated as `';'`. The terminals are quoted. Additional notation is provided in the below chart.
 
 | Usage      | Month | Meaning |
 | ----------- | ----------- | ----------- |
